@@ -149,9 +149,7 @@ angular.module('schemaForm').provider('sfBuilder', ['sfPathProvider', function(s
         // Special case, an array with just one item in it that is not an object.
         // So then we just override the modelValue
         if (args.form.schema && args.form.schema.items &&
-            args.form.schema.items.type &&
-            args.form.schema.items.type.indexOf('object') === -1 &&
-            args.form.schema.items.type.indexOf('array') === -1) {
+            args.form.schema.items.type ) {
           var strKey = sfPathProvider.stringify(args.form.key).replace(/"/g, '&quot;') + '[$index]';
           state.modelValue = 'modelArray[$index]';
         } else {
